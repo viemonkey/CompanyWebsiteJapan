@@ -1,0 +1,229 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="woodTable" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6b4423;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8b5a3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5a3a1f;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="silverMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8f0f7;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#c9d9e6;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#a8bdd4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8ca3ba;stop-opacity:1" />
+    </linearGradient>
+
+    <radialGradient id="silverShine" cx="40%" cy="30%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
+      <stop offset="40%" style="stop-color:#e8f0f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a8bdd4;stop-opacity:1" />
+    </radialGradient>
+
+    <linearGradient id="skinTone" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f4d5c0;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#e8b89a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d4a588;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="darkCloth" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d1f1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a0f0d;stop-opacity:1" />
+    </linearGradient>
+
+    <radialGradient id="goldShine" cx="35%" cy="35%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.9" />
+      <stop offset="50%" style="stop-color:#daa520;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b8860b;stop-opacity:1" />
+    </radialGradient>
+
+    <filter id="metalShine">
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <pattern id="woodGrain" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <line x1="20" y1="0" x2="20" y2="100" stroke="#5a3a1f" stroke-width="0.8" opacity="0.3" />
+      <line x1="45" y1="0" x2="45" y2="100" stroke="#5a3a1f" stroke-width="1.2" opacity="0.25" />
+      <line x1="70" y1="0" x2="70" y2="100" stroke="#5a3a1f" stroke-width="0.6" opacity="0.35" />
+      <line x1="85" y1="0" x2="85" y2="100" stroke="#5a3a1f" stroke-width="1" opacity="0.2" />
+    </pattern>
+
+    <radialGradient id="vignette" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#1a1410;stop-opacity:0" />
+      <stop offset="70%" style="stop-color:#0a0807;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0.7" />
+    </radialGradient>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="1200" height="800" fill="#1a1410" />
+  <rect width="1200" height="800" fill="url(#vignette)" />
+
+  <!-- Wooden table -->
+  <rect x="0" y="300" width="1200" height="500" fill="url(#woodTable)" />
+  <rect x="0" y="300" width="1200" height="500" fill="url(#woodGrain)" opacity="0.4" />
+  <rect x="0" y="300" width="1200" height="3" fill="#8b5a3c" opacity="0.6" />
+  
+  <!-- Wood scratches -->
+  <line x1="200" y1="320" x2="400" y2="380" stroke="#4a2f1a" stroke-width="1" opacity="0.3" />
+  <line x1="500" y1="350" x2="700" y2="420" stroke="#4a2f1a" stroke-width="1.5" opacity="0.25" />
+  <line x1="800" y1="340" x2="950" y2="400" stroke="#4a2f1a" stroke-width="0.8" opacity="0.3" />
+
+  <!-- Silver dust particles -->
+  <circle cx="350" cy="450" r="1.2" fill="#d9e2ec" opacity="0.5" />
+  <circle cx="420" cy="480" r="0.8" fill="#d9e2ec" opacity="0.6" />
+  <circle cx="480" cy="520" r="1.5" fill="#d9e2ec" opacity="0.4" />
+  <circle cx="550" cy="490" r="1" fill="#d9e2ec" opacity="0.55" />
+  <circle cx="600" cy="470" r="1.3" fill="#d9e2ec" opacity="0.45" />
+  <circle cx="380" cy="530" r="0.9" fill="#d9e2ec" opacity="0.5" />
+  <circle cx="450" cy="510" r="1.1" fill="#d9e2ec" opacity="0.48" />
+  <circle cx="520" cy="540" r="0.7" fill="#d9e2ec" opacity="0.6" />
+  <circle cx="580" cy="520" r="1.4" fill="#d9e2ec" opacity="0.42" />
+  <circle cx="650" cy="500" r="1" fill="#d9e2ec" opacity="0.52" />
+
+  <!-- Jeweler's block -->
+  <g transform="translate(500, 450)">
+    <rect x="-60" y="-30" width="120" height="80" rx="4" fill="#5a3a1f" opacity="0.8" />
+    <rect x="-55" y="-25" width="110" height="70" rx="3" fill="#6b4423" />
+    <ellipse cx="0" cy="10" rx="45" ry="25" fill="#4a2f1a" opacity="0.7" />
+    <ellipse cx="-5" cy="8" rx="40" ry="22" fill="#5a3a1f" opacity="0.5" />
+  </g>
+
+  <!-- Left hand holding ring -->
+  <g transform="translate(420, 380)">
+    <path d="M 0 0 Q -20 15 -25 35 L -30 60 Q -32 75 -28 85 L -15 82 L 0 75 Q 10 68 12 55 L 10 35 Q 8 20 0 0 Z" fill="url(#skinTone)" stroke="#c49a7a" stroke-width="0.5" />
+    <path d="M 10 35 Q 20 32 25 38 Q 28 45 26 52 L 15 55 Q 12 50 12 45 Z" fill="url(#skinTone)" stroke="#c49a7a" stroke-width="0.5" />
+    <path d="M -25 35 L -35 42 Q -40 45 -38 52 L -32 55 L -25 50 Z" fill="url(#skinTone)" stroke="#c49a7a" stroke-width="0.5" />
+    <path d="M -22 40 L -30 48 Q -34 52 -32 58 L -26 60 L -20 54 Z" fill="url(#skinTone)" stroke="#c49a7a" stroke-width="0.5" />
+    <ellipse cx="-26" cy="42" rx="2" ry="1.5" fill="#d4a588" opacity="0.6" />
+    <ellipse cx="18" cy="40" rx="2" ry="1.5" fill="#d4a588" opacity="0.6" />
+    <ellipse cx="-36" cy="48" rx="3" ry="2" fill="#f4d5c0" opacity="0.7" />
+    <ellipse cx="24" cy="42" rx="3" ry="2" fill="#f4d5c0" opacity="0.7" />
+  </g>
+
+  <!-- Right hand with tool -->
+  <g transform="translate(650, 360)">
+    <path d="M 0 0 Q 15 12 20 28 L 25 50 Q 27 65 23 72 L 12 70 L 0 65 Q -8 58 -10 45 L -8 25 Q -5 12 0 0 Z" fill="url(#skinTone)" stroke="#c49a7a" stroke-width="0.5" />
+    <path d="M 20 28 L 28 32 Q 32 35 30 42 L 24 44 L 18 38 Z" fill="url(#skinTone)" stroke="#c49a7a" stroke-width="0.5" />
+    <path d="M 17 32 L 24 36 Q 28 39 26 45 L 20 47 L 15 42 Z" fill="url(#skinTone)" stroke="#c49a7a" stroke-width="0.5" />
+    <path d="M 0 25 Q -8 28 -10 35 Q -11 42 -8 48 L 2 45 Q 4 38 3 32 Z" fill="url(#skinTone)" stroke="#c49a7a" stroke-width="0.5" />
+  </g>
+
+  <!-- Dark sleeves -->
+  <ellipse cx="410" cy="465" rx="35" ry="15" fill="url(#darkCloth)" opacity="0.9" />
+  <ellipse cx="640" cy="432" rx="32" ry="14" fill="url(#darkCloth)" opacity="0.9" />
+
+  <!-- Silver ring - center focus -->
+  <g transform="translate(520, 430)">
+    <ellipse cx="0" cy="0" rx="42" ry="35" fill="none" stroke="url(#silverMetal)" stroke-width="10" filter="url(#metalShine)" />
+    <ellipse cx="0" cy="0" rx="42" ry="35" fill="none" stroke="#7a94ab" stroke-width="4" opacity="0.6" />
+    <ellipse cx="-8" cy="-6" rx="35" ry="28" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.35" />
+    <ellipse cx="-5" cy="-4" rx="37" ry="30" fill="none" stroke="#e8f0f7" stroke-width="2" opacity="0.25" />
+    
+    <!-- Engraving details -->
+    <path d="M -30 -18 Q -25 -22 -20 -18" fill="none" stroke="#5a7388" stroke-width="0.8" opacity="0.5" />
+    <path d="M 20 -18 Q 25 -22 30 -18" fill="none" stroke="#5a7388" stroke-width="0.8" opacity="0.5" />
+    <path d="M -35 8 Q -32 4 -29 8" fill="none" stroke="#5a7388" stroke-width="0.8" opacity="0.5" />
+    <path d="M 29 8 Q 32 4 35 8" fill="none" stroke="#5a7388" stroke-width="0.8" opacity="0.5" />
+    
+    <!-- Setting mount -->
+    <g transform="translate(0, -38)">
+      <rect x="-10" y="-6" width="20" height="14" rx="2" fill="url(#silverMetal)" />
+      <rect x="-8" y="-4" width="16" height="10" fill="#6a8199" opacity="0.4" />
+      <ellipse cx="0" cy="1" rx="6" ry="4" fill="url(#silverShine)" />
+    </g>
+  </g>
+
+  <!-- Engraving tool -->
+  <g transform="translate(642, 392) rotate(-25)">
+    <line x1="0" y1="0" x2="65" y2="0" stroke="#6b4423" stroke-width="4" stroke-linecap="round" />
+    <line x1="65" y1="0" x2="85" y2="0" stroke="url(#silverMetal)" stroke-width="3" />
+    <line x1="65" y1="0" x2="85" y2="0" stroke="#ffffff" stroke-width="1" opacity="0.4" />
+    <polygon points="85,0 92,-1.5 92,1.5" fill="#7a94ab" />
+    <line x1="85" y1="0" x2="92" y2="0" stroke="#ffffff" stroke-width="0.5" opacity="0.6" />
+  </g>
+
+  <!-- Scattered jewelry -->
+  <!-- Silver bracelet -->
+  <g transform="translate(250, 380)">
+    <ellipse cx="0" cy="0" rx="35" ry="22" fill="none" stroke="url(#silverMetal)" stroke-width="5" filter="url(#metalShine)" />
+    <ellipse cx="-6" cy="-4" rx="30" ry="18" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.3" />
+  </g>
+
+  <!-- Gold ring with red stone -->
+  <g transform="translate(820, 360)">
+    <circle cx="0" cy="0" r="18" fill="none" stroke="url(#goldShine)" stroke-width="4" filter="url(#metalShine)" />
+    <circle cx="-3" cy="-3" r="15" fill="none" stroke="#ffd700" stroke-width="1.5" opacity="0.4" />
+    <circle cx="0" cy="-18" r="5" fill="#ff6b6b" opacity="0.8" />
+    <circle cx="0" cy="-18" r="3" fill="#ff4444" opacity="0.6" />
+  </g>
+
+  <!-- Silver chain -->
+  <g transform="translate(700, 520)">
+    <path d="M 0 0 Q 15 -8 30 0 Q 45 8 60 0 Q 75 -8 90 0" fill="none" stroke="url(#silverMetal)" stroke-width="3" />
+    <path d="M 5 2 Q 18 -5 28 2" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.4" />
+  </g>
+
+  <!-- Earring -->
+  <g transform="translate(320, 520)">
+    <circle cx="0" cy="0" r="3" fill="url(#silverShine)" />
+    <line x1="0" y1="3" x2="0" y2="15" stroke="url(#silverMetal)" stroke-width="1.5" />
+    <circle cx="0" cy="20" r="8" fill="none" stroke="url(#silverMetal)" stroke-width="2" />
+  </g>
+
+  <!-- Pendant -->
+  <g transform="translate(880, 480)">
+    <circle cx="0" cy="0" r="2" fill="url(#silverMetal)" />
+    <line x1="0" y1="2" x2="0" y2="10" stroke="url(#silverMetal)" stroke-width="1" />
+    <circle cx="0" cy="18" r="12" fill="url(#silverShine)" filter="url(#metalShine)" />
+    <path d="M -6 12 L 0 20 L 6 12" fill="none" stroke="#7a94ab" stroke-width="0.8" opacity="0.6" />
+  </g>
+
+  <!-- Tools -->
+  <!-- Pliers -->
+  <g transform="translate(280, 580)">
+    <ellipse cx="10" cy="0" rx="5" ry="12" fill="#6a8199" />
+    <ellipse cx="20" cy="0" rx="5" ry="12" fill="#6a8199" />
+    <path d="M 10 12 L 10 0" stroke="#627d98" stroke-width="2.5" />
+    <path d="M 20 12 L 20 0" stroke="#627d98" stroke-width="2.5" />
+    <line x1="10" y1="0" x2="20" y2="0" stroke="#627d98" stroke-width="2.5" />
+    <path d="M 10 -12 L 10 -35" stroke="#7a94ab" stroke-width="3" />
+    <path d="M 20 -12 L 20 -35" stroke="#7a94ab" stroke-width="3" />
+    <line x1="10" y1="-35" x2="20" y2="-35" stroke="#8ca3ba" stroke-width="3" />
+  </g>
+
+  <!-- Hammer -->
+  <g transform="translate(750, 620)">
+    <rect x="0" y="0" width="55" height="4" rx="2" fill="#6b4423" />
+    <rect x="50" y="-12" width="18" height="28" rx="3" fill="url(#silverMetal)" />
+    <rect x="52" y="-10" width="14" height="24" fill="#8ca3ba" opacity="0.5" />
+  </g>
+
+  <!-- Files -->
+  <g transform="translate(880, 600)">
+    <rect x="0" y="0" width="70" height="3" rx="1.5" fill="#7a94ab" />
+    <rect x="0" y="8" width="65" height="3" rx="1.5" fill="#8ca3ba" />
+    <rect x="70" y="-2" width="10" height="7" fill="#5a3a1f" />
+    <rect x="65" y="6" width="10" height="7" fill="#5a3a1f" />
+  </g>
+
+  <!-- White display cards -->
+  <rect x="850" y="420" width="120" height="90" rx="3" fill="#f8f4f0" opacity="0.9" />
+  <rect x="950" y="380" width="100" height="80" rx="3" fill="#f8f4f0" opacity="0.85" />
+  <rect x="200" y="450" width="110" height="85" rx="3" fill="#f8f4f0" opacity="0.9" />
+
+  <!-- Warm lighting -->
+  <ellipse cx="520" cy="400" rx="200" ry="150" fill="#ffd700" opacity="0.02" />
+  <ellipse cx="520" cy="430" rx="180" ry="120" fill="#ffffff" opacity="0.03" />
+
+  <!-- Sparkles -->
+  <circle cx="520" cy="410" r="1.5" fill="#ffffff" opacity="0.8" />
+  <circle cx="520" cy="410" r="3" fill="#ffffff" opacity="0.2" />
+  <circle cx="540" cy="425" r="1.2" fill="#d9e2ec" opacity="0.7" />
+  <circle cx="500" cy="435" r="1" fill="#ffffff" opacity="0.6" />
+  <circle cx="535" cy="400" r="0.8" fill="#f0f4f8" opacity="0.8" />
+  <circle cx="505" cy="420" r="1.3" fill="#d9e2ec" opacity="0.65" />
+  <circle cx="250" cy="380" r="1.5" fill="#ffffff" opacity="0.7" />
+  <circle cx="820" cy="360" r="1.2" fill="#ffd700" opacity="0.6" />
+  <circle cx="880" cy="485" r="1" fill="#ffffff" opacity="0.65" />
+</svg>

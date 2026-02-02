@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fffef9;
+  color: #243b53;
+  font-family: 'Noto Sans JP', sans-serif;
+  overflow-x: hidden;
+  line-height: 1.8;
+}
+
+/* Japanese aesthetic - subtle paper texture */
+.paper-texture {
+  background-image: 
+    linear-gradient(rgba(255, 254, 249, 0.95), rgba(255, 254, 249, 0.95)),
+    url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+}
+
+/* Minimalist divider - Japanese style */
+.divider-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ec7893, transparent);
+  margin: 0 auto;
+}
+
+/* Subtle shadow - not harsh */
+.soft-shadow {
+  box-shadow: 0 2px 20px rgba(36, 59, 83, 0.06);
+}
+
+/* Hover effect - minimal and elegant */
+.hover-lift-subtle {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift-subtle:hover {
+  transform: translateY(-4px);
+}
+
+/* Japanese border decoration */
+.border-ornament {
+  position: relative;
+}
+
+.border-ornament::before,
+.border-ornament::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 1px;
+  background: #ec7893;
+}
+
+.border-ornament::before {
+  top: 0;
+  left: 0;
+}
+
+.border-ornament::after {
+  bottom: 0;
+  right: 0;
+}
+
+/* Cherry blossom petal animation */
+@keyframes petal-fall {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.petal {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, #fce4e8, #f9ccd4);
+  border-radius: 50% 0 50% 0;
+  opacity: 0.6;
+  animation: petal-fall linear infinite;
+}
+
+/* Zen circle - Enso */
+.enso {
+  width: 200px;
+  height: 200px;
+  border: 3px solid #ec7893;
+  border-radius: 50%;
+  opacity: 0.15;
+  position: absolute;
+}
+
+/* Vertical text for Japanese aesthetic */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Subtle gradient overlay */
+.gradient-overlay {
+  background: linear-gradient(180deg, 
+    rgba(255, 254, 249, 0) 0%, 
+    rgba(255, 254, 249, 0.8) 50%, 
+    rgba(255, 254, 249, 1) 100%
+  );
+}
+
+/* Card with washi paper effect */
+.washi-card {
+  background: linear-gradient(135deg, #fffef9 0%, #fef9e0 100%);
+  border: 1px solid rgba(236, 120, 147, 0.1);
+  transition: all 0.4s ease;
+}
+
+.washi-card:hover {
+  border-color: rgba(236, 120, 147, 0.3);
+  box-shadow: 0 8px 30px rgba(236, 120, 147, 0.08);
+}
+
+/* Minimalist button */
+.btn-minimal {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-minimal::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(236, 120, 147, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-minimal:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Scroll reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Japanese text emphasis */
+.text-emphasis {
+  background: linear-gradient(transparent 60%, rgba(236, 120, 147, 0.2) 60%);
+  padding: 0 4px;
+}
+
+/* Haiku-style spacing */
+.haiku-spacing {
+  line-height: 2.5;
+  letter-spacing: 0.05em;
+}
+
+/* Minimalist section spacing */
+.section-padding {
+  padding: 120px 0;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 80px 0;
+  }
+}
