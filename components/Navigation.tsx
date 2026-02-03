@@ -1,11 +1,14 @@
 'use client'
 
+
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +18,7 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+
   const navLinks = [
     { href: '/', label: 'ホーム' },
     { href: '/about', label: '私たちについて' },
@@ -23,11 +27,12 @@ export default function Navigation() {
     { href: '/contact', label: 'お問い合わせ' },
   ]
 
+
   return (
-    <nav 
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-sakura-100' 
+        isScrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-sakura-100'
           : 'bg-transparent'
       }`}
     >
@@ -45,13 +50,14 @@ export default function Navigation() {
             </div>
             <div className="flex flex-col">
               <span className="font-display text-xl font-medium text-indigo-900">
-                TechCore
+                <img src="/images/hk_black_logo.webp" alt="" />
               </span>
               {/* <span className="text-xs text-indigo-600 tracking-wider font-light">
                 さくらテック
               </span> */}
             </div>
           </Link>
+
 
           {/* Desktop Navigation - Minimal */}
           <div className="hidden md:flex items-center space-x-12">
@@ -67,6 +73,7 @@ export default function Navigation() {
             ))}
           </div>
 
+
           {/* Mobile Menu Button - Minimal */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -80,6 +87,7 @@ export default function Navigation() {
             </div>
           </button>
         </div>
+
 
         {/* Mobile Menu - Minimal */}
         <div className={`md:hidden overflow-hidden transition-all duration-500 ${isMobileMenuOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>

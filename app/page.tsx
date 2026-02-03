@@ -1,13 +1,15 @@
 import Link from 'next/link'
 
+
 export default function Home() {
   return (
     <>
       {/* Lớp ảnh nền (Background Image) - MỚI THÊM */}
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-40"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-20"
         style={{ backgroundImage: "url('/images/img-background.jpeg')" }}
       ></div>
+
 
       {/* Lớp phủ mờ (Overlay) - MỚI THÊM */}
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-white/20 via-transparent to-white"></div>
@@ -16,6 +18,7 @@ export default function Home() {
         {/* Subtle decorative elements */}
         <div className="enso -top-20 -right-20"></div>
         <div className="enso -bottom-20 -left-20"></div>
+
 
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center space-y-12">
@@ -29,11 +32,10 @@ export default function Home() {
               </h1>
               <div className="divider-line mx-auto my-8"></div>
               <p className="text-xl md:text-2xl text-indigo-700 font-light max-w-3xl mx-auto haiku-spacing">
-                職人の創造性と情熱が込められた、
-                <br />
-                手作りのジュエリー。
+                私たちは信じています。本当の美しさは、完璧さから生まれるものではなく——ひとつひとつの細やかな手仕事に込められた真心から生まれるものだと。
               </p>
             </div>
+
 
             {/* CTA Buttons - Minimal style */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up pt-8">
@@ -53,6 +55,7 @@ export default function Home() {
           </div>
         </div>
 
+
         {/* Decorative petals */}
         <div className="petal" style={{ left: '10%', animationDuration: '12s', animationDelay: '0s' }}></div>
         <div className="petal" style={{ left: '30%', animationDuration: '15s', animationDelay: '2s' }}></div>
@@ -60,6 +63,7 @@ export default function Home() {
         <div className="petal" style={{ left: '70%', animationDuration: '13s', animationDelay: '1s' }}></div>
         <div className="petal" style={{ left: '90%', animationDuration: '14s', animationDelay: '3s' }}></div>
       </section>
+
 
       {/* Philosophy Section - 哲学 */}
       <section className="section-padding bg-gradient-to-b from-cream-50 to-white">
@@ -71,6 +75,7 @@ export default function Home() {
             </h2>
             <div className="divider-line"></div>
           </div>
+
 
           <div className="grid md:grid-cols-3 gap-12 md:gap-16">
             {/* 簡素 - Simplicity */}
@@ -89,6 +94,7 @@ export default function Home() {
               </p>
             </div>
 
+
             {/* 調和 - Harmony */}
             <div className="text-center space-y-6 reveal" style={{ animationDelay: '0.2s' }}>
               <div className="w-20 h-20 mx-auto">
@@ -105,6 +111,7 @@ export default function Home() {
                 すべてがバランスよく共存する。
               </p>
             </div>
+
 
             {/* 心 - Heart */}
             <div className="text-center space-y-6 reveal" style={{ animationDelay: '0.4s' }}>
@@ -124,6 +131,7 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* Services Overview - Minimal Cards */}
       <section className="section-padding">
         <div className="container mx-auto px-6 max-w-6xl">
@@ -134,6 +142,7 @@ export default function Home() {
             </h2>
             <div className="divider-line"></div>
           </div>
+
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="washi-card p-10 hover-lift-subtle soft-shadow">
@@ -149,6 +158,7 @@ export default function Home() {
               </Link>
             </div>
 
+
             <div className="washi-card p-10 hover-lift-subtle soft-shadow">
               <h3 className="font-display text-2xl font-medium text-indigo-900 mb-4">
                 クラウドサービス
@@ -162,6 +172,7 @@ export default function Home() {
               </Link>
             </div>
 
+
             <div className="washi-card p-10 hover-lift-subtle soft-shadow">
               <h3 className="font-display text-2xl font-medium text-indigo-900 mb-4">
                 セキュリティ
@@ -174,6 +185,7 @@ export default function Home() {
                 <span>→</span>
               </Link>
             </div>
+
 
             <div className="washi-card p-10 hover-lift-subtle soft-shadow">
               <h3 className="font-display text-2xl font-medium text-indigo-900 mb-4">
@@ -190,6 +202,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
       {/* Stats - Minimal Design */}
       <section className="section-padding bg-gradient-to-b from-white to-cream-50">
@@ -214,6 +227,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
       {/* CTA - Zen Style */}
       <section className="section-padding">
