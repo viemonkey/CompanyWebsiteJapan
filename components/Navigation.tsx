@@ -41,21 +41,9 @@ export default function Navigation() {
           {/* Logo - Minimalist */}
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative">
-              {/* <div className="w-10 h-10 border-2 border-sakura-500 rounded-sm flex items-center justify-center transition-transform group-hover:rotate-45 duration-500">
-                <span className="font-display text-xl font-bold text-sakura-500 transition-transform group-hover:-rotate-45 duration-500">
-                  桜
-                </span>
-              </div> */}
               <img className='logo-nav' src="/images/logo vcb.png" alt="Logo VCB" width="80" height="80" />
             </div>
-            <div className="flex flex-col">
-              <span className="font-display text-xl font-medium text-indigo-900">
-                <img src="/images/hk_black_logo.webp" alt="" />
-              </span>
-              {/* <span className="text-xs text-indigo-600 tracking-wider font-light">
-                さくらテック
-              </span> */}
-            </div>
+            
           </Link>
 
 

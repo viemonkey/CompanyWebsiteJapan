@@ -25,7 +25,7 @@ export default function Contact() {
   }
 
   return (
-    <div className="pt-20">
+    <div className="pt-20 bg-[#1a1a00]">
       {/* Hero */}
       <section className="section-padding">
         <div className="container mx-auto px-6 max-w-5xl text-center">
