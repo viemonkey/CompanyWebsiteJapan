@@ -1,256 +1,87 @@
+import { style } from 'framer-motion/client'
 import Link from 'next/link'
-
 
 export default function Home() {
   return (
-    <>
-      {/* Lớp ảnh nền (Background Image) - MỚI THÊM */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-20"
-        style={{ backgroundImage: "url('/images/img-background.jpeg')" }}
-      ></div>
+    <div className="bg-[#1a1a00] min-h-screen text-amber-50 selection:bg-amber-500/30" style={{ backgroundImage: "url('/images/img-background.jpeg')" }}>
+      {/* Lớp nền tối với hiệu ứng gradient vàng mờ (Sát với ảnh mẫu) */}
+      <div className="fixed inset-0 z-0">
+        {/* Nền tối chủ đạo */}
+        <div className="absolute inset-0 bg-[#4d4712]"></div>
+        
+        {/* Các đốm sáng vàng mờ tạo chiều sâu */}
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-amber-900/20 blur-[120px] rounded-full"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-yellow-900/10 blur-[150px] rounded-full"></div>
+        
+        {/* Overlay texture nhẹ */}
+        <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')]"></div>
+      </div>
 
-
-      {/* Lớp phủ mờ (Overlay) - MỚI THÊM */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-white/20 via-transparent to-white"></div>
-      {/* Hero Section - Minimalist Japanese Style */}
-      <section className="section-padding relative overflow-hidden">
-        {/* Subtle decorative elements */}
-        <div className="enso -top-20 -right-20"></div>
-        <div className="enso -bottom-20 -left-20"></div>
-
-
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center space-y-12">
-            {/* Main heading with Japanese aesthetic */}
-            <div className="space-y-6 animate-fade-in">
-              <p className="text-sm tracking-[0.3em] text-indigo-600 font-light uppercase">
-                VIENCHIBAO
-              </p>
-              <h1 className="font-display text-6xl md:text-6xl lg:text-7xl font-medium text-indigo-900 leading-tight">
-                心で綴る、唯一無二の輝き
-              </h1>
-              <div className="divider-line mx-auto my-8"></div>
-              <p className="text-xl md:text-2xl text-indigo-700 font-light max-w-3xl mx-auto haiku-spacing">
-                私たちは信じています。本当の美しさは、完璧さから生まれるものではなく——ひとつひとつの細やかな手仕事に込められた真心から生まれるものだと。
-              </p>
-            </div>
-
-
-            {/* CTA Buttons - Minimal style */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up pt-8">
-              <Link
-                href="/products"
-                className="btn-minimal px-12 py-4 bg-sakura-500 text-white font-medium rounded-sm hover:bg-sakura-600 transition-colors relative z-10"
-              >
-                サービス案内
-              </Link>
-              <Link
-                href="/about"
-                className="btn-minimal px-12 py-4 border-2 border-indigo-800 text-indigo-800 font-medium rounded-sm hover:bg-indigo-50 transition-colors relative z-10"
-              >
-                私たちについて
-              </Link>
-            </div>
-          </div>
-        </div>
-
-
-        {/* Decorative petals */}
-        <div className="petal" style={{ left: '10%', animationDuration: '12s', animationDelay: '0s' }}></div>
-        <div className="petal" style={{ left: '30%', animationDuration: '15s', animationDelay: '2s' }}></div>
-        <div className="petal" style={{ left: '50%', animationDuration: '10s', animationDelay: '4s' }}></div>
-        <div className="petal" style={{ left: '70%', animationDuration: '13s', animationDelay: '1s' }}></div>
-        <div className="petal" style={{ left: '90%', animationDuration: '14s', animationDelay: '3s' }}></div>
-      </section>
-
-
-      {/* Philosophy Section - 哲学 */}
-      <section className="section-padding bg-gradient-to-b from-cream-50 to-white">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <div className="text-center mb-20">
-            <p className="text-sm tracking-[0.3em] text-sakura-500 mb-4">Philosophy</p>
-            <h2 className="font-display text-4xl md:text-5xl font-medium text-indigo-900 mb-6">
-              私たちの哲学
-            </h2>
-            <div className="divider-line"></div>
+      {/* Hero Section */}
+      <section className="relative min-h-[90vh] flex items-center justify-center px-4 overflow-hidden">
+        <div className="relative z-10 text-center max-w-4xl mx-auto">
+          <div className="mb-6 text-amber-500/50 tracking-[0.5em] text-xs font-light">
+            VIENCHIBAO
           </div>
 
+          <h1 className="text-5xl md:text-6xl font-light mb-8 text-amber-50 leading-tight tracking-[0.1em]">
+            心で綴る、唯一無二の輝き
+          </h1>
 
-          <div className="grid md:grid-cols-3 gap-12 md:gap-16">
-            {/* 簡素 - Simplicity */}
-            <div className="text-center space-y-6 reveal">
-              <div className="w-20 h-20 mx-auto">
-                <svg viewBox="0 0 100 100" className="text-sakura-400" fill="currentColor">
-                  <circle cx="50" cy="50" r="45" opacity="0.1" />
-                  <path d="M50 20 L50 80 M20 50 L80 50" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.4" />
-                </svg>
-              </div>
-              <h3 className="font-display text-2xl font-medium text-indigo-900">簡素</h3>
-              <p className="text-indigo-700 leading-relaxed">
-                本質を見極め、無駄を削ぎ落とす。
-                <br />
-                シンプルさの中に真の価値がある。
-              </p>
-            </div>
+          <p className="text-amber-100/60 text-base md:text-lg leading-relaxed font-light max-w-2xl mx-auto mb-12">
+            私たちは信じています。本当の美しさは、完璧さから生まれるものではなく——<br className="hidden md:block" />
+            ひとつひとつの細やかな手仕事に込められた真心から生まれるものだと。
+          </p>
 
-
-            {/* 調和 - Harmony */}
-            <div className="text-center space-y-6 reveal" style={{ animationDelay: '0.2s' }}>
-              <div className="w-20 h-20 mx-auto">
-                <svg viewBox="0 0 100 100" className="text-sakura-400" fill="currentColor">
-                  <circle cx="30" cy="50" r="20" opacity="0.15" />
-                  <circle cx="70" cy="50" r="20" opacity="0.15" />
-                  <circle cx="50" cy="50" r="15" opacity="0.3" />
-                </svg>
-              </div>
-              <h3 className="font-display text-2xl font-medium text-indigo-900">調和</h3>
-              <p className="text-indigo-700 leading-relaxed">
-                技術と人、伝統と革新。
-                <br />
-                すべてがバランスよく共存する。
-              </p>
-            </div>
-
-
-            {/* 心 - Heart */}
-            <div className="text-center space-y-6 reveal" style={{ animationDelay: '0.4s' }}>
-              <div className="w-20 h-20 mx-auto">
-                <svg viewBox="0 0 100 100" className="text-sakura-400" fill="currentColor">
-                  <path d="M50 80 C50 80, 20 55, 20 35 C20 20, 30 15, 40 20 C45 23, 48 28, 50 30 C52 28, 55 23, 60 20 C70 15, 80 20, 80 35 C80 55, 50 80, 50 80 Z" opacity="0.2" />
-                </svg>
-              </div>
-              <h3 className="font-display text-2xl font-medium text-indigo-900">心</h3>
-              <p className="text-indigo-700 leading-relaxed">
-                一つひとつの仕事に心を込めて。
-                <br />
-                誠実さが信頼を生む。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* Services Overview - Minimal Cards */}
-      <section className="section-padding">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-20">
-            <p className="text-sm tracking-[0.3em] text-sakura-500 mb-4">Services</p>
-            <h2 className="font-display text-4xl md:text-5xl font-medium text-indigo-900 mb-6">
-              提供サービス
-            </h2>
-            <div className="divider-line"></div>
-          </div>
-
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="washi-card p-10 hover-lift-subtle soft-shadow">
-              <h3 className="font-display text-2xl font-medium text-indigo-900 mb-4">
-                AI ソリューション
-              </h3>
-              <p className="text-indigo-700 leading-relaxed mb-6">
-                最先端の人工知能技術で、ビジネスの可能性を広げます。
-              </p>
-              <Link href="/products" className="text-sakura-500 hover:text-sakura-600 transition-colors inline-flex items-center gap-2">
-                詳しく見る
-                <span>→</span>
-              </Link>
-            </div>
-
-
-            <div className="washi-card p-10 hover-lift-subtle soft-shadow">
-              <h3 className="font-display text-2xl font-medium text-indigo-900 mb-4">
-                クラウドサービス
-              </h3>
-              <p className="text-indigo-700 leading-relaxed mb-6">
-                安全で効率的なクラウドインフラを構築します。
-              </p>
-              <Link href="/products" className="text-sakura-500 hover:text-sakura-600 transition-colors inline-flex items-center gap-2">
-                詳しく見る
-                <span>→</span>
-              </Link>
-            </div>
-
-
-            <div className="washi-card p-10 hover-lift-subtle soft-shadow">
-              <h3 className="font-display text-2xl font-medium text-indigo-900 mb-4">
-                セキュリティ
-              </h3>
-              <p className="text-indigo-700 leading-relaxed mb-6">
-                企業の大切な情報を守る、堅牢なシステムを提供します。
-              </p>
-              <Link href="/products" className="text-sakura-500 hover:text-sakura-600 transition-colors inline-flex items-center gap-2">
-                詳しく見る
-                <span>→</span>
-              </Link>
-            </div>
-
-
-            <div className="washi-card p-10 hover-lift-subtle soft-shadow">
-              <h3 className="font-display text-2xl font-medium text-indigo-900 mb-4">
-                コンサルティング
-              </h3>
-              <p className="text-indigo-700 leading-relaxed mb-6">
-                技術戦略から実装まで、包括的にサポートします。
-              </p>
-              <Link href="/products" className="text-sakura-500 hover:text-sakura-600 transition-colors inline-flex items-center gap-2">
-                詳しく見る
-                <span>→</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* Stats - Minimal Design */}
-      <section className="section-padding bg-gradient-to-b from-white to-cream-50">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <div className="grid md:grid-cols-4 gap-12 text-center">
-            <div className="space-y-3">
-              <div className="font-display text-5xl font-medium text-sakura-500">500+</div>
-              <div className="text-indigo-700 text-sm tracking-wider">プロジェクト</div>
-            </div>
-            <div className="space-y-3">
-              <div className="font-display text-5xl font-medium text-sakura-500">98%</div>
-              <div className="text-indigo-700 text-sm tracking-wider">顧客満足度</div>
-            </div>
-            <div className="space-y-3">
-              <div className="font-display text-5xl font-medium text-sakura-500">50+</div>
-              <div className="text-indigo-700 text-sm tracking-wider">エキスパート</div>
-            </div>
-            <div className="space-y-3">
-              <div className="font-display text-5xl font-medium text-sakura-500">10年</div>
-              <div className="text-indigo-700 text-sm tracking-wider">実績</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* CTA - Zen Style */}
-      <section className="section-padding">
-        <div className="container mx-auto px-6 max-w-3xl text-center">
-          <div className="space-y-8">
-            <h2 className="font-display text-4xl md:text-5xl font-medium text-indigo-900">
-              共に未来を創りましょう
-            </h2>
-            <div className="divider-line"></div>
-            <p className="text-xl text-indigo-700 leading-relaxed">
-              あなたのビジョンを実現するために
-              <br />
-              私たちは全力でサポートいたします
-            </p>
-            <Link
-              href="/contact"
-              className="btn-minimal inline-block px-12 py-4 bg-indigo-800 text-white font-medium rounded-sm hover:bg-indigo-900 transition-colors relative z-10 mt-8"
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <Link 
+              href="/services"
+              className="px-10 py-3 bg-amber-600 hover:bg-amber-500 text-[#1a1a00] font-medium transition-all duration-300 text-xs tracking-[0.2em] rounded-sm shadow-lg shadow-amber-900/40"
             >
-              お問い合わせ
+              サービス案内
+            </Link>
+            <Link 
+              href="/about"
+              className="px-10 py-3 border border-amber-600/50 text-amber-500 hover:bg-amber-600/10 transition-all duration-300 text-xs tracking-[0.2em] rounded-sm"
+            >
+              私たちについて
             </Link>
           </div>
         </div>
+
+        {/* Decorative particles (Đốm vàng lấp lánh như ảnh) */}
+        <div className="absolute top-1/4 left-10 w-1 h-1 bg-amber-400 rounded-full shadow-[0_0_8px_rgba(251,191,36,0.8)] animate-pulse"></div>
+        <div className="absolute top-1/2 right-12 w-1.5 h-1.5 bg-yellow-500 rounded-full shadow-[0_0_10px_rgba(251,191,36,0.6)] animate-pulse delay-700"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-1 h-1 bg-amber-200 rounded-full opacity-40"></div>
       </section>
-    </>
+
+      {/* Philosophy Section - Darkened */}
+      <section className="relative py-32 px-4 border-t border-amber-900/20">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+            <div className="text-amber-600/40 text-xs tracking-[0.4em] mb-4 uppercase">Philosophy</div>
+            <h2 className="text-3xl md:text-4xl font-light text-amber-50 tracking-widest">
+              私たちの哲学
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-12 ">
+            {[
+              { kanji: "簡", title: "簡素", desc: "本質を見極め、無駄を削ぎ落とす。シンプルさの中に真の価値がある" },
+              { kanji: "調", title: "調和", desc: "技術と人、伝統と革新。すべてがバランスよく共存する。" }, 
+              { kanji: "心", title: "心", desc: "一つひとつの仕事に心を込めて。誠実さが信頼を生む。" },
+            ].map((item, index) => (
+              <div key={index} className="group text-center p-10 bg-amber-950/20 backdrop-blur-md rounded-sm border border-amber-900/30 hover:border-amber-500/40 transition-all duration-500">
+                <div className="text-5xl mb-8 text-amber-500/80 group-hover:scale-110 transition-transform duration-500">{item.kanji}</div>
+                <h3 className="text-xl font-light mb-6 text-amber-200 tracking-widest">{item.title}</h3>
+                <p className="leading-relaxed text-sm text-yellow-350">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   )
 }
