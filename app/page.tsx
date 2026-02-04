@@ -3,19 +3,23 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div className="bg-[#1a1a00] min-h-screen text-amber-50 selection:bg-amber-500/30" style={{ backgroundImage: "url('/images/img-background.jpeg')" }}>
+    <div className="bg-[#1a1a00] min-h-screen text-amber-50 selection:bg-amber-500/30">
       {/* Lớp nền tối với hiệu ứng gradient vàng mờ (Sát với ảnh mẫu) */}
       <div className="fixed inset-0 z-0">
-        {/* Nền tối chủ đạo */}
-        <div className="absolute inset-0 bg-[#4d4712]"></div>
-        
-        {/* Các đốm sáng vàng mờ tạo chiều sâu */}
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-amber-900/20 blur-[120px] rounded-full"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-yellow-900/10 blur-[150px] rounded-full"></div>
-        
-        {/* Overlay texture nhẹ */}
-        <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')]"></div>
-      </div>
+    {/* 1. SỬA TẠI ĐÂY: Thêm url() vào backgroundImage */}
+    <div 
+      className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30" 
+      style={{ backgroundImage: "url('/images/img-background.jpeg')" }}
+    ></div>
+    
+    {/* 2. Lớp phủ Gradient để làm tối ảnh nền, giúp chữ dễ đọc hơn */}
+    <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a00] via-transparent to-[#1a1a00]"></div>
+
+    {/* Các đốm sáng và texture (Giữ nguyên) */}
+    <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-amber-900/20 blur-[120px] rounded-full"></div>
+    <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-yellow-900/10 blur-[150px] rounded-full"></div>
+    <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')]"></div>
+  </div>
 
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center px-4 overflow-hidden">
