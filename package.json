@@ -10,6 +10,7 @@
     "export": "next build && next export"
   },
   "dependencies": {
+    "@cospired/i18n-iso-languages": "^4.2.0",
     "@heroui/card": "^2.2.27",
     "@heroui/system": "^2.4.26",
     "@heroui/theme": "^2.4.26",
