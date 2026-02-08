@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 type LanguageContextType = {
   locale: string;
@@ -9,7 +9,26 @@ type LanguageContextType = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [locale, setLocale] = useState('en'); // Mặc định là tiếng Anh
+  const [locale, setLocale] = useState('en');
+
+  useEffect(() => {
+    // 1. Luôn reset state về 'en' khi load lại trang
+    setLocale('en');
+
+    // 2. Hàm ép Google Translate về tiếng Anh
+    const resetGoogleTranslate = () => {
+      const googleCombo = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+      if (googleCombo) {
+        googleCombo.value = 'en';
+        googleCombo.dispatchEvent(new Event('change'));
+      }
+    };
+
+    // Đợi 1 khoảng thời gian ngắn để Google Script kịp sẵn sàng sau khi load trang
+    const timer = setTimeout(resetGoogleTranslate, 1200);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <LanguageContext.Provider value={{ locale, setLocale }}>
