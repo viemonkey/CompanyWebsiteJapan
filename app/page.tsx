@@ -28,7 +28,17 @@ const STORY_DATA: StoryContent[] = [
     id: 2,
     part: "Part 2 of 3",
     title: "A Heritage In Bloom",
-    image: "/images/heritage-bloom.jpg", // Thay bằng ảnh của bạn
+    image: "https://vienchibao.com/wp-content/uploads/2025/02/Vong-tay-ty-huu-4.png", // Thay bằng ảnh của bạn
+    description: [
+      "Meticulously handcrafted, every design—from the Heart Sutra to the sacred Lotus—carries its own unique story and inner belief.",
+      "With over a decade of excellence, we have proudly served thousands, establishing a distinguished presence in Vietnam’s spiritual jewelry community."
+    ]
+  },
+  {
+    id: 3,
+    part: "Part 3 of 3",
+    title: "A Heritage In Bloom",
+    image: "https://vienchibao.com/wp-content/uploads/2025/07/12.png", // Thay bằng ảnh của bạn
     description: [
       "Meticulously handcrafted, every design—from the Heart Sutra to the sacred Lotus—carries its own unique story and inner belief.",
       "With over a decade of excellence, we have proudly served thousands, establishing a distinguished presence in Vietnam’s spiritual jewelry community."
@@ -66,7 +76,7 @@ export default function Home() {
         <div className="relative z-10 text-center max-w-4xl mx-auto">
           <div className="mb-6 text-amber-500/50 tracking-[0.5em] text-xs font-light uppercase">Vien Chi Bao</div>
           <h1 className="text-5xl md:text-7xl font-serif mb-8 text-amber-50 leading-tight italic">
-            Kiến tạo nên linh hồn của <br /> Timeless Radiance
+            Crafting the soul of <br /> Timeless Radiance
           </h1>
           <Link href="/products" className="px-10 py-4 bg-amber-600 hover:bg-amber-500 text-[#1a1a00] font-medium transition-all text-xs tracking-[0.2em] rounded-sm">
             EXPLORE COLLECTIONS
