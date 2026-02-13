@@ -27,7 +27,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const forceGoogleTranslate = (lang: string) => {
     // 1. Xóa sạch cookie cũ để tránh xung đột
     document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + document.domain;
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname;
     
     /** * LƯU Ý: 
      * Nếu bạn viết code gốc bằng TIẾNG VIỆT, hãy để "/vi/${lang}"
