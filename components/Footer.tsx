@@ -66,13 +66,13 @@ export default function Footer() {
 
           {/* CỘT 3: Menu khám phá (Sẽ được dịch) */}
           <div className="md:col-span-3 space-y-6 text-right md:text-left">
-            <h3 className="text-white text-[11px] font-semibold tracking-[0.2em] uppercase opacity-90">Explore</h3>
+            <h3 className="text-white text-[11px] font-semibold tracking-[0.2em] uppercase opacity-90">...</h3>
             <ul className="space-y-3">
               {[
-                { label: "Collections", href: "#" },
-                { label: "Blog", href: "#" },
-                { label: "Contact", href: "#" },
-                { label: "Legal", href: "#" }
+                { label: "...", href: "#" },
+                { label: "...", href: "#" },
+                { label: "...", href: "#" },
+                { label: "...", href: "#" }
               ].map((item) => (
                 <li key={item.label}>
                   <Link href={item.href} className="text-stone-500 hover:text-amber-500 transition-all duration-300 font-light text-[12px] tracking-wide block">
@@ -81,25 +81,17 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="flex gap-3 pt-4 justify-end md:justify-start" translate="no">
+            {/* <div className="flex gap-3 pt-4 justify-end md:justify-start" translate="no">
               {['Fb', 'Ig', 'Tk'].map((social) => (
                 <a key={social} href="#" className="text-[10px] tracking-widest text-stone-400 hover:text-[#0a0a0a] hover:bg-white transition-all duration-500 uppercase border border-white/10 w-9 h-9 flex items-center justify-center rounded-full">
                   {social}
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
 
-        {/* Bottom Bar (Sẽ được dịch trừ tên thương hiệu) */}
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] tracking-[0.2em] text-stone-600 uppercase">
-          <p>© {currentYear} <span className="text-stone-400" translate="no">VIENCHIBAO ATELIER.</span></p>
-          <div className="flex items-center gap-6">
-            <span>Hanoi, Vietnam</span>
-            <span className="w-1.5 h-[1px] bg-amber-600/40 hidden md:block"></span>
-            <span className="italic font-light opacity-70 normal-case tracking-[0.15em]">Crafted with Soul</span>
-          </div>
-        </div>
+        
       </div>
 
       <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="fixed bottom-8 right-8 w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-amber-500/5 group transition-all duration-500 z-50 bg-[#0a0a0a]/80 backdrop-blur-md">

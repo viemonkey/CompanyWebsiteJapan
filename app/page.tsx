@@ -2,212 +2,159 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { ChevronLeft, ChevronRight, Sparkles, ShieldCheck, Gem } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Sparkles, ShieldCheck, Gem, ArrowDown } from 'lucide-react';
 
-// 1. Định nghĩa kiểu dữ liệu cho nội dung Story
-interface StoryContent {
-  id: number;
-  title: string;
-  description: string[];
-  image: string;
-  part: string;
-}
-
-const STORY_DATA: StoryContent[] = [
+const STORY_DATA = [
   {
     id: 1,
     part: "Part 1 of 3",
-    title: "Our Story",
+    title: "The Genesis",
     image: "/images/knowledgeAboutJewelry.png",
     description: [
-      "Vien Chi Bao specializes in premium jewelry—crafted from S925 silver, gold, gemstones, and natural agarwood—deeply rooted in Oriental art, Feng Shui, and spirituality.",
-      "Beyond mere adornment, each piece serves as a personal 'amulet,' bringing luck, peace, and positive energy to its wearer."
+      "Vien Chi Bao specializes in premium jewelry—crafted from S925 silver, gold, gemstones, and natural agarwood.",
+      "Beyond mere adornment, each piece serves as a personal 'amulet,' bringing luck and positive energy."
     ]
   },
   {
     id: 2,
     part: "Part 2 of 3",
-    title: "A Heritage In Bloom",
+    title: "Masterful Craftsmanship",
     image: "https://vienchibao.com/wp-content/uploads/2025/02/Vong-tay-ty-huu-4.png",
     description: [
-      "Meticulously handcrafted, every design—from the Heart Sutra to the sacred Lotus—carries its own unique story and inner belief.",
-      "With over a decade of excellence, we have proudly served thousands, establishing a distinguished presence in Vietnam’s spiritual jewelry community."
+      "Every design is meticulously handcrafted by master artisans with decades of experience.",
+      "We blend ancient metallurgy with modern precision to ensure flawless quality."
     ]
   },
   {
     id: 3,
     part: "Part 3 of 3",
-    title: "A Heritage In Bloom",
+    title: "Global Vision",
     image: "https://vienchibao.com/wp-content/uploads/2025/07/12.png",
     description: [
-      "Meticulously handcrafted, every design—from the Heart Sutra to the sacred Lotus—carries its own unique story and inner belief.",
-      "With over a decade of excellence, we have proudly served thousands, establishing a distinguished presence in Vietnam’s spiritual jewelry community."
+      "Established in Vietnam, we are now expanding to bring Oriental wisdom to the modern world.",
+      "Our mission is to share timeless elegance through every handcrafted detail."
     ]
   }
 ];
 
 export default function Home() {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextStory = () => setCurrentIndex((prev) => (prev + 1) % STORY_DATA.length);
   const prevStory = () => setCurrentIndex((prev) => (prev - 1 + STORY_DATA.length) % STORY_DATA.length);
 
-  const currentStory = STORY_DATA[currentIndex];
-
   return (
-    <div className="bg-[#1a1a00] min-h-screen text-amber-50 selection:bg-transparent font-sans">
-
-      {/* 1. HERO SECTION - Giao diện cũ */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
+    // THAY ĐỔI: Nền sáng hơn một chút với tông Slate-950 hoặc Zinc-950
+    <div className="bg-[#121212] min-h-screen text-stone-100 selection:bg-amber-200/30 font-sans overflow-x-hidden">
+      
+      {/* 1. HERO SECTION - Tăng độ sáng cho Video và Text */}
+      <section className="relative h-screen flex items-center justify-center px-4">
         <div className="absolute inset-0 z-0">
           <video
             src="/images/noname.mp4"
             autoPlay loop muted playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-60"
+            className="absolute inset-0 w-full h-full object-cover opacity-60" // Tăng opacity từ 40 -> 60
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a00]/20 via-transparent to-[#1a1a00]"></div>
+          {/* Layer phủ sáng hơn: Dùng gradient từ đen sang trong suốt thay vì phủ đen toàn bộ */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-black/20 to-black/40"></div>
         </div>
 
-        <div className="relative z-10 text-center max-w-4xl mx-auto">
-          <div className="mb-6 text-amber-500/50 tracking-[0.5em] text-xs font-light uppercase" translate="no">
-            Vien Chi Bao Global LLC
+        <div className="relative z-10 text-center max-w-5xl mx-auto space-y-8">
+          <div className="space-y-4">
+            <div className="text-amber-400 tracking-[0.8em] text-xs font-semibold uppercase drop-shadow-md" translate='no'>
+              Vien Chi Bao Global LLC
+            </div>
+            <h1 className="text-6xl md:text-8xl font-serif text-white leading-tight italic font-light drop-shadow-2xl">
+              Crafting the Soul of <br /> 
+              <span className="text-amber-400 italic">Timeless Radiance</span>
+            </h1>
           </div>
-          <h1 className="text-5xl md:text-7xl font-serif mb-8 text-amber-50 leading-tight italic">
-            Crafting the soul of <br /> Timeless Radiance
-          </h1>
-          <Link href="/products" className="px-10 py-4 bg-amber-600 hover:bg-amber-500 text-[#1a1a00] font-medium transition-all text-xs tracking-[0.2em] rounded-sm">
+          
+          <Link href="/products" className="inline-block mt-8 px-12 py-5 bg-amber-500 hover:bg-amber-400 text-black font-bold transition-all text-xs tracking-[0.3em] rounded-full shadow-[0_0_20px_rgba(245,158,11,0.4)]">
             EXPLORE COLLECTIONS
           </Link>
         </div>
-      </section>
 
-      {/* 2. SECTION: STORY - Giao diện cũ */}
-      <section className="relative py-24 bg-[#1a1a00]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 transition-all duration-700">
-            <div className="w-full lg:w-1/2">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-sm shadow-2xl border border-amber-900/20">
-                <div
-                  key={currentStory.image}
-                  className="absolute inset-0 bg-cover bg-center transition-all duration-1000 animate-in fade-in zoom-in-95"
-                  style={{ backgroundImage: `url('${currentStory.image}')` }}
-                ></div>
-              </div>
-            </div>
-
-            <div className="w-full lg:w-1/2 space-y-8">
-              <div className="space-y-2">
-                <p className="text-amber-600/60 text-xs tracking-[0.3em] uppercase">
-                  {currentStory.part}
-                </p>
-                <h2 className="text-3xl md:text-5xl font-serif text-amber-50 tracking-wider">
-                  {currentStory.title}
-                </h2>
-              </div>
-
-              <div className="min-h-[200px] space-y-6 text-amber-100/70 text-sm md:text-base leading-relaxed font-light text-justify border-t border-amber-900/20 pt-8">
-                {currentStory.description.map((p, index) => (
-                  <p key={index}>{p}</p>
-                ))}
-              </div>
-
-              <div className="flex items-center gap-8 pt-4">
-                <button onClick={prevStory} className="group active:scale-90 transition-all">
-                  <ChevronLeft className="w-6 h-6 text-amber-100/20 group-hover:text-amber-500 transition-all" strokeWidth={1} />
-                </button>
-                <button onClick={nextStory} className="group active:scale-90 transition-all">
-                  <ChevronRight className="w-6 h-6 text-amber-100/20 group-hover:text-amber-500 transition-all" strokeWidth={1} />
-                </button>
-              </div>
-            </div>
-          </div>
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+          <ArrowDown className="w-6 h-6 text-amber-400" />
         </div>
       </section>
 
-      {/* 4. SECTION: OUR TEAM - New Content */}
-      <section className="relative py-24 bg-[#1a1a00] border-t border-amber-900/10">
+      {/* 2. STORY SECTION - Nền sáng hơn (Stone-900) */}
+      <section className="relative py-32 bg-[#1a1a1a]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="w-full md:w-1/2 space-y-6">
-              <div className="text-amber-600/40 text-xs tracking-[0.4em] uppercase">Our Artisans</div>
-              <h2 className="text-3xl md:text-5xl font-serif text-amber-50 italic leading-tight">
-                The Master Hands <br /> Behind Every Soul
-              </h2>
-              <div className="space-y-4 text-stone-400 text-sm md:text-base leading-relaxed font-light text-justify border-l border-amber-600/30 pl-6">
-                <p>
-                  Our team is a collective of master artisans and visionary designers dedicated to the art of spiritual jewelry. 
-                  With decades of combined experience, we preserve ancient techniques while embracing contemporary aesthetics.
-                </p>
-                <p>
-                  At Vien Chi Bao, we don't just manufacture jewelry; we infuse each piece with sincerity and meticulous care, 
-                  ensuring that every creation carries a unique energy for its owner.
-                </p>
-              </div>
-            </div>
-            <div className="w-full md:w-1/2">
-              <div className="relative aspect-video md:aspect-square overflow-hidden rounded-sm border border-amber-900/20 group">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Hình ảnh có hiệu ứng đổ bóng sáng (Glow) */}
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-amber-500/20 rounded-lg blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+              <div className="relative aspect-square overflow-hidden rounded-lg border border-white/10 shadow-2xl">
                 <img 
-                  src="https://scontent.fhan14-3.fna.fbcdn.net/v/t39.30808-6/588768492_122106653679098557_6203967222155187378_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=wLsH_uQNs4UQ7kNvwGDKkNB&_nc_oc=AdlhYu1XEBJDcHlSXe1ogmmW4rhtXybUr0NlXYRA6tuzaPEBcXeFjI2AWoBO4yhr0eg&_nc_zt=23&_nc_ht=scontent.fhan14-3.fna&_nc_gid=EMPbBBvugbSPpEcD4F-5cA&oh=00_AfsHUqg1TeofX6eLGhhHSG61uYawGt2mQMYJJISd4Siuvg&oe=6994AD29" 
-                  alt="Our Team" 
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
+                  key={STORY_DATA[currentIndex].image}
+                  src={STORY_DATA[currentIndex].image} 
+                  className="w-full h-full object-cover animate-in fade-in zoom-in-95 duration-700"
+                  alt="Story"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a00] via-transparent to-transparent opacity-60"></div>
-                <div className="absolute bottom-6 left-6 text-white">
-                  <span className="text-[10px] tracking-[0.3em] uppercase opacity-70">Crafted with Soul</span>
-                </div>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="space-y-2">
+                <p className="text-amber-500 font-bold text-sm tracking-widest">{STORY_DATA[currentIndex].part}</p>
+                <h2 className="text-5xl font-serif text-white">{STORY_DATA[currentIndex].title}</h2>
+              </div>
+              <div className="space-y-6 text-stone-300 text-lg leading-relaxed font-light border-l-2 border-amber-500/30 pl-8">
+                {STORY_DATA[currentIndex].description.map((p, i) => <p key={i}>{p}</p>)}
+              </div>
+              <div className="flex gap-6 pt-4">
+                <button onClick={prevStory} className="p-4 rounded-full border border-white/10 hover:bg-white/5 transition-colors">
+                  <ChevronLeft className="w-6 h-6 text-amber-500" />
+                </button>
+                <button onClick={nextStory} className="p-4 rounded-full border border-white/10 hover:bg-white/5 transition-colors">
+                  <ChevronRight className="w-6 h-6 text-amber-500" />
+                </button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. PHILOSOPHY SECTION - Giữ giao diện có Icon đẹp nhất */}
-      <section className="relative py-32 px-4 bg-[#151500]/50 border-t border-amber-900/10">
-        <div className="max-w-6xl mx-auto px-4 text-center relative z-10">
+      {/* 3. PHILOSOPHY SECTION - Dùng nền sáng hẳn hoặc Gradient mạnh */}
+      <section className="relative py-32 bg-gradient-to-b from-[#1a1a1a] to-[#121212]">
+        <div className="max-w-6xl mx-auto px-6 text-center">
           <div className="mb-20">
-            <div className="text-amber-600/40 text-xs tracking-[0.4em] mb-4 uppercase">Philosophy</div>
-            <h2 className="text-3xl md:text-4xl font-serif text-amber-50 italic">Giá trị cốt lõi của chúng tôi</h2>
-            <div className="w-24 h-[1px] bg-amber-600/30 mx-auto mt-6"></div>
+            <h2 className="text-4xl md:text-5xl font-serif text-white mb-6">Our Core Values</h2>
+            <div className="w-24 h-1 bg-amber-500 mx-auto"></div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { 
-                title: "CHÍNH TRỰC", 
-                icon: <ShieldCheck className="w-8 h-8 mb-6 text-amber-500 group-hover:scale-110 transition-transform duration-500" />,
-                desc: "We guarantee absolute transparency in gold purity and weight, ensuring the lasting trust of our customers.",
-                highlight: "Pure Trust"
-              },
-              { 
-                title: "SỰ AN TOÀN", 
-                icon: <Sparkles className="w-8 h-8 mb-6 text-amber-500 group-hover:scale-110 transition-transform duration-500" />,
-                desc: "Crafted with nickel-free and lead-free materials, ensuring complete safety for even the most sensitive skin.",
-                highlight: "Ultimate Care"
-              },
-              { 
-                title: "TAY NGHỀ", 
-                icon: <Gem className="w-8 h-8 mb-6 text-amber-500 group-hover:scale-110 transition-transform duration-500" />,
-                desc: "Each creation is a masterpiece, meticulously handcrafted to bring a unique soul to your jewelry collection.",
-                highlight: "Soulful Artistry"
-              },
+              { title: "INTEGRITY", icon: <ShieldCheck />, desc: "Certified materials and total transparency." },
+              { title: "SAFETY", icon: <Sparkles />, desc: "Hypoallergenic and skin-safe premium metals." },
+              { title: "ARTISTRY", icon: <Gem />, desc: "Handcrafted souls in every single detail." },
             ].map((item, index) => (
-              <div key={index} className="group p-10 bg-white/[0.02] border border-white/5 hover:border-amber-500/30 hover:bg-white/[0.04] transition-all duration-700 relative overflow-hidden">
-                <div className="flex flex-col items-center">
-                  {item.icon}
-                  <h3 className="text-lg font-light mb-2 text-white tracking-[0.2em]">{item.title}</h3>
-                  <p className="text-amber-600/60 text-[9px] italic mb-6 tracking-widest uppercase font-semibold" translate="no">
-                    {item.highlight}
-                  </p>
-                  <p className="leading-relaxed text-sm text-stone-400 font-light text-center opacity-80 group-hover:opacity-100 transition-opacity">
-                    {item.desc}
-                  </p>
+              <div key={index} className="p-10 rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.07] hover:-translate-y-2 transition-all duration-500">
+                <div className="inline-block p-4 rounded-full bg-amber-500/10 mb-6">
+                  {React.cloneElement(item.icon as React.ReactElement, { className: "w-8 h-8 text-amber-500" })}
                 </div>
-                <div className="absolute bottom-0 left-0 w-full h-[1px] bg-amber-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
+                <h3 className="text-xl font-bold text-white mb-4 tracking-widest">{item.title}</h3>
+                <p className="text-stone-400 font-light leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* 4. FINAL CTA - Tông màu sáng rực rỡ hơn để kết thúc trang */}
+      <section className="py-32 px-6">
+        <div className="max-w-5xl mx-auto rounded-3xl bg-gradient-to-r from-amber-600 to-amber-400 p-12 md:p-20 text-center shadow-[0_20px_50px_rgba(245,158,11,0.2)]">
+          <h2 className="text-4xl md:text-6xl font-serif text-black mb-8 italic">Bring Home Your Amulet</h2>
+          <p className="text-black/80 text-lg mb-12 max-w-2xl mx-auto font-medium">Discover jewelry that resonates with your energy and elevates your spirit.</p>
+          <Link href="/contact" className="px-12 py-5 bg-black text-white font-bold rounded-full hover:scale-105 transition-transform tracking-widest text-xs">
+            BOOK A PRIVATE CONSULTATION
+          </Link>
+        </div>
+      </section>
+
     </div>
   );
 }
