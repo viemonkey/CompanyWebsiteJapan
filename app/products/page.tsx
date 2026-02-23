@@ -40,7 +40,7 @@ export default function ShippingPolicy() {
           {/* Introduction - Chữ nhỏ, giãn dòng rộng */}
           <div className="mb-32 text-center max-w-2xl mx-auto">
             <p className="text-[15px] md:text-lg text-stone-400 leading-[2] font-light italic italic-font-serif">
-              "At HuyK, we understand that every piece of jewelry carries profound meaning and sentiment. 
+              "At VienChiBao, we understand that every piece of jewelry carries profound meaning and sentiment. 
               Our team is committed to ensuring your pieces are delivered swiftly, safely, and in pristine condition."
             </p>
           </div>

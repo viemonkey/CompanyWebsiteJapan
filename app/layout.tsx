@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google"; 
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import { LanguageProvider } from "../context/LanguageContext"; 
+import { LanguageProvider } from "../context/LanguageContext";
 import Script from "next/script";
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter", 
+  variable: "--font-inter",
 });
 
 const playfair = Playfair_Display({
@@ -29,8 +29,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script 
-          src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" 
+        <Script
+          src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
           strategy="afterInteractive"
         />
         <Script id="google-translate-init" strategy="afterInteractive">
@@ -42,7 +42,6 @@ export default function RootLayout({
               }, 'google_translate_element');
             }
 
-            // Theo dõi và xóa bỏ các phần tử Google chèn vào runtime
             const observer = new MutationObserver(() => {
               const banner = document.querySelector('.goog-te-banner-frame');
               if (banner) {
@@ -51,7 +50,6 @@ export default function RootLayout({
               }
               const combo = document.querySelector('.goog-te-combo');
               if (combo) {
-                // Giữ combo để code điều khiển nhưng ẩn đi
                 const parent = combo.closest('.skiptranslate');
                 if (parent) parent.style.display = 'none';
               }
@@ -64,7 +62,6 @@ export default function RootLayout({
           `}
         </Script>
         <style>{`
-          /* ẨN TRIỆT ĐỂ BANNER VÀ CÁC THÀNH PHẦN LIÊN QUAN */
           .goog-te-banner-frame,
           .goog-te-banner-frame.skiptranslate,
           .goog-te-banner,
@@ -76,25 +73,17 @@ export default function RootLayout({
             visibility: hidden !important;
             opacity: 0 !important;
           }
-
-          /* CHỐNG ĐẨY BODY XUỐNG DƯỚI */
           body { 
             top: 0px !important; 
             position: static !important;
           }
-
-          /* VÔ HIỆU HÓA HIGHLIGHT KHI DI CHUỘT */
           .goog-text-highlight { 
             background: transparent !important; 
             box-shadow: none !important; 
           }
-
-          /* XÓA PADDING CỦA HTML MÀ GOOGLE TỰ THÊM */
           html {
             padding-top: 0px !important;
           }
-          
-          /* ẨN WIDGET MẶC ĐỊNH */
           #google_translate_element, 
           .goog-te-gadget { 
             display: none !important; 
@@ -102,9 +91,7 @@ export default function RootLayout({
         `}</style>
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans`}>
-        {/* Vẫn giữ ID này ở đây nhưng ẩn hoàn toàn để máy dịch hoạt động */}
         <div id="google_translate_element" style={{ display: 'none' }}></div>
-        
         <LanguageProvider>
           <Navigation />
           {children}
@@ -114,3 +101,4 @@ export default function RootLayout({
     </html>
   );
 }
+

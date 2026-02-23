@@ -44,18 +44,16 @@ export default function Home() {
   const prevStory = () => setCurrentIndex((prev) => (prev - 1 + STORY_DATA.length) % STORY_DATA.length);
 
   return (
-    // THAY ĐỔI: Nền sáng hơn một chút với tông Slate-950 hoặc Zinc-950
     <div className="bg-[#121212] min-h-screen text-stone-100 selection:bg-amber-200/30 font-sans overflow-x-hidden">
-      
-      {/* 1. HERO SECTION - Tăng độ sáng cho Video và Text */}
+
+      {/* 1. HERO SECTION */}
       <section className="relative h-screen flex items-center justify-center px-4">
         <div className="absolute inset-0 z-0">
           <video
             src="/images/noname.mp4"
             autoPlay loop muted playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-60" // Tăng opacity từ 40 -> 60
+            className="absolute inset-0 w-full h-full object-cover opacity-60"
           />
-          {/* Layer phủ sáng hơn: Dùng gradient từ đen sang trong suốt thay vì phủ đen toàn bộ */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-black/20 to-black/40"></div>
         </div>
 
@@ -65,11 +63,11 @@ export default function Home() {
               Vien Chi Bao Global LLC
             </div>
             <h1 className="text-6xl md:text-8xl font-serif text-white leading-tight italic font-light drop-shadow-2xl">
-              Crafting the Soul of <br /> 
+              Crafting the Soul of <br />
               <span className="text-amber-400 italic">Timeless Radiance</span>
             </h1>
           </div>
-          
+
           <Link href="/products" className="inline-block mt-8 px-12 py-5 bg-amber-500 hover:bg-amber-400 text-black font-bold transition-all text-xs tracking-[0.3em] rounded-full shadow-[0_0_20px_rgba(245,158,11,0.4)]">
             EXPLORE COLLECTIONS
           </Link>
@@ -80,17 +78,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. STORY SECTION - Nền sáng hơn (Stone-900) */}
+      {/* 2. STORY SECTION */}
       <section className="relative py-32 bg-[#1a1a1a]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Hình ảnh có hiệu ứng đổ bóng sáng (Glow) */}
             <div className="relative group">
               <div className="absolute -inset-1 bg-amber-500/20 rounded-lg blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
               <div className="relative aspect-square overflow-hidden rounded-lg border border-white/10 shadow-2xl">
-                <img 
+                <img
                   key={STORY_DATA[currentIndex].image}
-                  src={STORY_DATA[currentIndex].image} 
+                  src={STORY_DATA[currentIndex].image}
                   className="w-full h-full object-cover animate-in fade-in zoom-in-95 duration-700"
                   alt="Story"
                 />
@@ -118,7 +115,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. PHILOSOPHY SECTION - Dùng nền sáng hẳn hoặc Gradient mạnh */}
+      {/* 3. PHILOSOPHY SECTION */}
       <section className="relative py-32 bg-gradient-to-b from-[#1a1a1a] to-[#121212]">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <div className="mb-20">
@@ -144,7 +141,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. FINAL CTA - Tông màu sáng rực rỡ hơn để kết thúc trang */}
+      {/* 4. FINAL CTA */}
       <section className="py-32 px-6">
         <div className="max-w-5xl mx-auto rounded-3xl bg-gradient-to-r from-amber-600 to-amber-400 p-12 md:p-20 text-center shadow-[0_20px_50px_rgba(245,158,11,0.2)]">
           <h2 className="text-4xl md:text-6xl font-serif text-black mb-8 italic">Bring Home Your Amulet</h2>
