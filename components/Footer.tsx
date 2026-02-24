@@ -1,8 +1,10 @@
 "use client"
 import Link from 'next/link'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
+  const { t } = useLanguage()
+  const navLinks: { label: string; href: string }[] = t('footer.navLinks') || []
 
   return (
     <footer className="bg-[#0a0a0a] text-stone-200 relative overflow-hidden border-t border-white/5 pt-16 pb-8">
@@ -10,8 +12,8 @@ export default function Footer() {
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-          
-          {/* CỘT 1: Thương hiệu & Giới thiệu (Sẽ được dịch) */}
+
+          {/* CỘT 1: Thương hiệu */}
           <div className="md:col-span-4 space-y-6">
             <Link href="/" className="inline-block group">
               <div className="flex items-center space-x-4">
@@ -28,73 +30,67 @@ export default function Footer() {
                 </div>
               </div>
             </Link>
-            {/* Viết bằng tiếng Anh để công cụ dịch tự động chuyển sang tiếng Việt/Nhật... */}
             <p className="text-stone-500 text-[11px] leading-relaxed max-w-xs tracking-wider uppercase opacity-80">
-              High-end handcrafted jewelry, deeply imbued with soul and Vietnamese identity.
+              {t('footer.tagline')}
             </p>
           </div>
 
-          {/* CỘT 2: Thông tin liên hệ (Tiêu đề dịch - Nội dung giữ nguyên) */}
+          {/* CỘT 2: Liên hệ */}
           <div className="md:col-span-5 space-y-6">
             <h3 className="text-white text-[11px] font-semibold tracking-[0.2em] uppercase opacity-90 border-b border-white/10 pb-2 inline-block">
-              Contact Information
+              {t('footer.contactTitle')}
             </h3>
             <div className="space-y-4 text-[12px] tracking-wide font-light">
-              
+
               <div className="group">
-                <span className="text-amber-600/70 text-[10px] uppercase block mb-1 tracking-widest">Company</span>
+                <span className="text-amber-600/70 text-[10px] uppercase block mb-1 tracking-widest">{t('footer.companyLabel')}</span>
                 <p className="text-stone-300 group-hover:text-white transition-colors duration-300 font-medium" translate="no">
                   Vien Chi Bao Global LLC
                 </p>
               </div>
-              
+
               <div className="group">
-                <span className="text-amber-600/70 text-[10px] uppercase block mb-1 tracking-widest">Address</span>
+                <span className="text-amber-600/70 text-[10px] uppercase block mb-1 tracking-widest">{t('footer.addressLabel')}</span>
                 <p className="text-stone-400 leading-relaxed group-hover:text-stone-200 transition-colors duration-300" translate="no">
-                  1500 N Grant ST STE <br/>Denver CO 80203 US
+                  1500 N Grant ST STE <br />Denver CO 80203 US
                 </p>
               </div>
 
               <div className="group">
-                <span className="text-amber-600/70 text-[10px] uppercase block mb-1 tracking-widest">Email</span>
-                <a href="mailto:vienchi.jewelry@gmail.com" className="text-stone-400 group-hover:text-amber-500 transition-all duration-300 underline underline-offset-4 decoration-white/5" translate="no">
+                <span className="text-amber-600/70 text-[10px] uppercase block mb-1 tracking-widest">{t('footer.emailLabel')}</span>
+                <a href="mailto:vienchi.jewelry@gmail.com"
+                  className="text-stone-400 group-hover:text-amber-500 transition-all duration-300 underline underline-offset-4 decoration-white/5"
+                  translate="no">
                   vienchi.jewelry@gmail.com
                 </a>
               </div>
             </div>
           </div>
 
-          {/* CỘT 3: Menu khám phá (Sẽ được dịch) */}
-          <div className="md:col-span-3 space-y-6 text-right md:text-left">
-            <h3 className="text-white text-[11px] font-semibold tracking-[0.2em] uppercase opacity-90">...</h3>
+          {/* CỘT 3: Menu */}
+          <div className="md:col-span-3 space-y-6">
+            <h3 className="text-white text-[11px] font-semibold tracking-[0.2em] uppercase opacity-90 border-b border-white/10 pb-2 inline-block">
+              {t('footer.navTitle')}
+            </h3>
             <ul className="space-y-3">
-              {[
-                { label: "...", href: "#" },
-                { label: "...", href: "#" },
-                { label: "...", href: "#" },
-                { label: "...", href: "#" }
-              ].map((item) => (
-                <li key={item.label}>
-                  <Link href={item.href} className="text-stone-500 hover:text-amber-500 transition-all duration-300 font-light text-[12px] tracking-wide block">
+              {navLinks.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}
+                    className="text-stone-500 hover:text-amber-500 transition-all duration-300 font-light text-[12px] tracking-wide block">
                     {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
-            {/* <div className="flex gap-3 pt-4 justify-end md:justify-start" translate="no">
-              {['Fb', 'Ig', 'Tk'].map((social) => (
-                <a key={social} href="#" className="text-[10px] tracking-widest text-stone-400 hover:text-[#0a0a0a] hover:bg-white transition-all duration-500 uppercase border border-white/10 w-9 h-9 flex items-center justify-center rounded-full">
-                  {social}
-                </a>
-              ))}
-            </div> */}
           </div>
-        </div>
 
-        
+        </div>
       </div>
 
-      <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="fixed bottom-8 right-8 w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-amber-500/5 group transition-all duration-500 z-50 bg-[#0a0a0a]/80 backdrop-blur-md">
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="fixed bottom-8 right-8 w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-amber-500/50 group transition-all duration-500 z-50 bg-[#0a0a0a]/80 backdrop-blur-md"
+      >
         <svg className="w-4 h-4 text-stone-500 group-hover:text-amber-500 group-hover:-translate-y-1 transition-all duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 15l7-7 7 7" />
         </svg>

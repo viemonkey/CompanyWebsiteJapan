@@ -4,7 +4,6 @@ import "./globals.css";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { LanguageProvider } from "../context/LanguageContext";
-import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,70 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <Script
-          src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-          strategy="afterInteractive"
-        />
-        <Script id="google-translate-init" strategy="afterInteractive">
-          {`
-            function googleTranslateElementInit() {
-              new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                autoDisplay: false
-              }, 'google_translate_element');
-            }
-
-            const observer = new MutationObserver(() => {
-              const banner = document.querySelector('.goog-te-banner-frame');
-              if (banner) {
-                banner.remove();
-                document.body.style.top = '0px';
-              }
-              const combo = document.querySelector('.goog-te-combo');
-              if (combo) {
-                const parent = combo.closest('.skiptranslate');
-                if (parent) parent.style.display = 'none';
-              }
-            });
-
-            observer.observe(document.documentElement, {
-              childList: true,
-              subtree: true
-            });
-          `}
-        </Script>
-        <style>{`
-          .goog-te-banner-frame,
-          .goog-te-banner-frame.skiptranslate,
-          .goog-te-banner,
-          .goog-te-menu-frame,
-          #goog-gt-tt, 
-          .goog-te-balloon-frame,
-          .skiptranslate { 
-            display: none !important; 
-            visibility: hidden !important;
-            opacity: 0 !important;
-          }
-          body { 
-            top: 0px !important; 
-            position: static !important;
-          }
-          .goog-text-highlight { 
-            background: transparent !important; 
-            box-shadow: none !important; 
-          }
-          html {
-            padding-top: 0px !important;
-          }
-          #google_translate_element, 
-          .goog-te-gadget { 
-            display: none !important; 
-          }
-        `}</style>
-      </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans`}>
-        <div id="google_translate_element" style={{ display: 'none' }}></div>
         <LanguageProvider>
           <Navigation />
           {children}
@@ -101,4 +37,3 @@ export default function RootLayout({
     </html>
   );
 }
-
