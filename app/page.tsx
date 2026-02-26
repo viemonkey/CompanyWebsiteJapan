@@ -156,14 +156,14 @@ export default function Home() {
       {/* ── 3. VIDEO SHOWCASE — Tinh thần công ty (MỚI) ── */}
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <video
-          src="/images/noname.mp4"
+          src="https://vienchibao.com/wp-content/uploads/2025/07/video.mp4"
           autoPlay loop muted playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] via-black/50 to-[#121212]" />
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6 space-y-6">
           <p className="text-amber-400 tracking-[0.6em] text-xs font-semibold uppercase">
-            THE SHOKUNIN SPIRIT
+            {ts('title.titleSS3', 'Tinh thần')} <br />
           </p>
           <h2 className="text-4xl md:text-6xl font-serif text-white italic font-light leading-tight">
             10 {ts('videoSection.years', 'Năm Chế Tác')} <br />
@@ -203,19 +203,19 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                image: 'https://vienchibao.com/wp-content/uploads/2025/02/Vong-tay-ty-huu-4.png',
+                image: 'https://huyk.asia/cdn/shop/files/2_948cbf35-5a9b-4a82-9de5-bad5e5589a9e.png?v=1762264861&width=1100',
                 label: ts('products.silver.label', 'Bạc S925'),
                 title: ts('products.silver.title', 'Vòng Tay Tỳ Hưu'),
                 desc: ts('products.silver.desc', 'Chế tác từ bạc S925 nguyên chất, mang năng lượng bảo hộ và tài lộc.'),
               },
               {
-                image: 'https://vienchibao.com/wp-content/uploads/2025/07/12.png',
+                image: 'https://vienchibao.com/wp-content/uploads/2025/02/Charm-kim-ngu-vang-24k-2.png',
                 label: ts('products.gold.label', 'Vàng 18K'),
                 title: ts('products.gold.title', 'Nhẫn Vàng Điêu Khắc'),
                 desc: ts('products.gold.desc', 'Đúc từ vàng 18K tinh luyện, từng đường nét được điêu khắc thủ công.'),
               },
               {
-                image: '/images/knowledgeAboutJewelry.png',
+                image: 'https://file.hstatic.net/200000468171/file/ruby-do__1__8bc1d07256a24678aa587ba3b807c3be_grande.jpg',
                 label: ts('products.gemstone.label', 'Đá Quý'),
                 title: ts('products.gemstone.title', 'Đá Quý Tự Nhiên'),
                 desc: ts('products.gemstone.desc', 'Tuyển chọn từ thiên nhiên, mỗi viên đá mang một năng lượng riêng biệt.'),
@@ -335,13 +335,14 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-12 mb-16">
             {[
               { name: 'Huy K', roleKey: 'team.members.0.position' },
-              { name: 'Linh Thi', roleKey: 'team.members.1.position' },
+              { name: 'CO-FOUNDER', roleKey: 'team.members.1.position' },
               { name: 'Thanh Minh', roleKey: 'team.members.2.position' },
             ].map((member, i) => (
               <div key={member.name} className="group text-center space-y-5">
                 <div className="relative mx-auto w-44 h-44 rounded-full overflow-hidden border-2 border-amber-500/20 group-hover:border-amber-500 transition-all duration-500 shadow-[0_0_0px_rgba(245,158,11,0)] group-hover:shadow-[0_0_30px_rgba(245,158,11,0.15)]">
                   <div className="w-full h-full bg-gradient-to-br from-stone-800 to-stone-900 flex items-center justify-center">
-                    <span className="text-5xl font-serif text-amber-400/50">{member.name.charAt(0)}</span>
+                    <img src="https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-6/515413133_3199555926887760_897946269193104786_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeFMxkIMjX_6g-L2irBqh8RSLEIleFEfPhEsQiV4UR8-EYJ0-BHh2ah6DKVbS7OBdOGqimQt0Iw8y6C-tZ_pYltn&_nc_ohc=GnQtC4peoSUQ7kNvwFXynVS&_nc_oc=Adn5geTvG3Zk8wPMSMpkQ-Q-wFTZbOUHonzYM9tAXDpATGdxZnfwVd3KUlYpETWHImI&_nc_zt=23&_nc_ht=scontent.fhan14-1.fna&_nc_gid=5zsBcB5c3f_L5EtG3uOY5w&oh=00_Afs1zuB8FSLVMEDspSJcJS0mEvxgGFslmk6WZS_4ZJWkWg&oe=69A5D807" alt="" />
+                    {/* <span className="text-5xl font-serif text-amber-400/50">{member.name.charAt(0)}</span> */}
                   </div>
                 </div>
                 <div>
