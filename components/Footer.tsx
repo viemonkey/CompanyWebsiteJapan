@@ -1,87 +1,98 @@
 "use client"
 import Link from 'next/link'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
+  const { t } = useLanguage()
+  const navLinks: { label: string; href: string }[] = t('footer.navLinks') || []
 
   return (
-    <footer className="bg-[#0a0a0a] text-stone-200 relative overflow-hidden border-t border-white/5">
-      <div className="container mx-auto px-6 py-12 max-w-7xl relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
-          
-          {/* Brand Identity */}
-          <div className="space-y-4">
+    <footer className="bg-[#0a0a0a] text-stone-200 relative overflow-hidden border-t border-white/5 pt-16 pb-8">
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-[120px] -z-0"></div>
+
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+
+          {/* CỘT 1: Thương hiệu */}
+          <div className="md:col-span-4 space-y-6">
             <Link href="/" className="inline-block group">
-              <div className="flex items-center space-x-3">
-                <div className="relative w-10 h-10 flex items-center justify-center">
-                  <div className="absolute inset-0 border border-amber-500/30 rotate-45 group-hover:rotate-90 transition-transform duration-700"></div>
-                  <svg className="w-5 h-5 text-amber-500/80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                    <path d="M12 2L2 12l10 10 10-10L12 2z" />
-                  </svg>
+              <div className="flex items-center space-x-4">
+                <div className="relative w-16 h-16 flex items-center justify-center border border-white/10 p-2 group-hover:border-amber-500/40 transition-all duration-500">
+                  <img src="/images/logo vcb.png" alt="Logo" className="w-full h-full object-contain" />
                 </div>
-                <div className="flex flex-col">
-                  <span className="font-display text-lg tracking-[0.2em] font-extralight text-white">
+                <div className="flex flex-col" translate="no">
+                  <span className="font-display text-xl tracking-[0.25em] font-light text-white uppercase">
                     VIENCHIBAO
                   </span>
-                  <span className="text-[9px] text-amber-500/60 tracking-[0.3em] uppercase">
-                    Atelier Jewelry
+                  <span className="text-[10px] text-amber-600 tracking-[0.4em] uppercase mt-1">
+                    Global LLC
                   </span>
                 </div>
               </div>
             </Link>
+            <p className="text-stone-500 text-[11px] leading-relaxed max-w-xs tracking-wider uppercase opacity-80">
+              {t('footer.tagline')}
+            </p>
           </div>
 
-          {/* Navigation */}
-          <div className="grid grid-cols-2 md:flex md:flex-row gap-8 md:gap-12">
-            {[
-              { title: "Khám phá", links: ["Bộ sưu tập", "Blog"] },
-              { title: "Hỗ trợ", links: ["Giao nhận", "Liên hệ"] },
-              { title: "Pháp lý", links: ["Bảo mật", "Điều khoản"] }
-            ].map((group) => (
-              <div key={group.title}>
-                <h3 className="text-white text-[10px] font-medium mb-3 tracking-[0.2em] uppercase opacity-50">
-                  {group.title}
-                </h3>
-                <ul className="space-y-2">
-                  {group.links.map((link) => (
-                    <li key={link}>
-                      <Link href="#" className="text-stone-500 hover:text-white transition-all duration-300 font-light text-[11px] tracking-wider block">
-                        {link}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+          {/* CỘT 2: Liên hệ */}
+          <div className="md:col-span-5 space-y-6">
+            <h3 className="text-white text-[11px] font-semibold tracking-[0.2em] uppercase opacity-90 border-b border-white/10 pb-2 inline-block">
+              {t('footer.contactTitle')}
+            </h3>
+            <div className="space-y-4 text-[12px] tracking-wide font-light">
+
+              <div className="group">
+                <span className="text-amber-600/70 text-[10px] uppercase block mb-1 tracking-widest">{t('footer.companyLabel')}</span>
+                <p className="text-stone-300 group-hover:text-white transition-colors duration-300 font-medium" translate="no">
+                  Vien Chi Bao Global LLC
+                </p>
               </div>
-            ))}
+
+              <div className="group">
+                <span className="text-amber-600/70 text-[10px] uppercase block mb-1 tracking-widest">{t('footer.addressLabel')}</span>
+                <p className="text-stone-400 leading-relaxed group-hover:text-stone-200 transition-colors duration-300" translate="no">
+                  1500 N Grant ST STE <br />Denver CO 80203 US
+                </p>
+              </div>
+
+              <div className="group">
+                <span className="text-amber-600/70 text-[10px] uppercase block mb-1 tracking-widest">{t('footer.emailLabel')}</span>
+                <a href="mailto:vienchi.jewelry@gmail.com"
+                  className="text-stone-400 group-hover:text-amber-500 transition-all duration-300 underline underline-offset-4 decoration-white/5"
+                  translate="no">
+                  vienchi.jewelry@gmail.com
+                </a>
+              </div>
+            </div>
           </div>
 
-          {/* Social */}
-          <div className="flex gap-5">
-            {['Fb', 'Ig', 'Tk'].map((social) => (
-              <a key={social} href="#" className="text-[10px] tracking-widest text-stone-500 hover:text-amber-500 transition-colors uppercase border border-white/10 w-8 h-8 flex items-center justify-center rounded-full">
-                {social}
-              </a>
-            ))}
+          {/* CỘT 3: Menu */}
+          <div className="md:col-span-3 space-y-6">
+            <h3 className="text-white text-[11px] font-semibold tracking-[0.2em] uppercase opacity-90 border-b border-white/10 pb-2 inline-block">
+              {t('footer.navTitle')}
+            </h3>
+            <ul className="space-y-3">
+              {navLinks.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}
+                    className="text-stone-500 hover:text-amber-500 transition-all duration-300 font-light text-[12px] tracking-wide block">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-white/5 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center text-[9px] tracking-[0.15em] text-stone-600 uppercase">
-          <p>© {currentYear} VIENCHIBAO ATELIER.</p>
-          <div className="flex gap-6 mt-2 md:mt-0">
-            <span>Hanoi, Vietnam</span>
-            <span className="text-stone-800">|</span>
-            <span>Crafted with Soul</span>
-          </div>
         </div>
       </div>
 
-      <button 
+      <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-6 right-6 w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-500 z-50 mix-blend-difference"
+        className="fixed bottom-8 right-8 w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-amber-500/50 group transition-all duration-500 z-50 bg-[#0a0a0a]/80 backdrop-blur-md"
       >
-        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M5 15l7-7 7 7" />
+        <svg className="w-4 h-4 text-stone-500 group-hover:text-amber-500 group-hover:-translate-y-1 transition-all duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 15l7-7 7 7" />
         </svg>
       </button>
     </footer>
